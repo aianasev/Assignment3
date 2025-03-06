@@ -64,30 +64,12 @@ export default function App() {
       ) : (
         <Text style={styles.message}>Enter for a fact:</Text>
       )}
-      
-      {/*Dropdown*/}
-      <TouchableOpacity 
-        style={styles.dropdown} 
-        onPress={() => setDropdownVisible(!dropdownVisible)}
-      >
-        <Text style={styles.dropdownText}>{month}</Text>
-      </TouchableOpacity>
-      
-      {dropdownVisible && (
-        <FlatList
-          data={months}
-          keyExtractor={(item) => item.value}
-          renderItem={({ item }) => (
-            <TouchableOpacity 
-              style={styles.dropdownItem} 
-              onPress={() => handleMonthSelect(item.value)}
-            >
-              <Text style={styles.dropdownItemText}>{item.label}</Text>
-            </TouchableOpacity>
-          )}
-        />
-      )}
-
+      <TextInput
+        style={styles.input}
+        placeholder="MM"
+        keyboardType="numeric"
+        onChangeText={setMonth}
+      />
       <TextInput
         style={styles.input}
         placeholder="DD"
