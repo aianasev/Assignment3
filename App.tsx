@@ -1,20 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { View, Text, TextInput, StyleSheet } from "react-native";
+
+const API_HOST = "numbersapi.p.rapidapi.com"; 
+const API_KEY = "4a0c8c7811msha2f5d43a7606bc5p1e4eb3jsndf9121a89f52";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [month, setMonth] = useState<string>("");
+  const [day, setDay] = useState<string>("");
+  const [fact, setFact] = useState<string>("");
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  useEffect(() => {
